@@ -14,12 +14,13 @@ router.post('/uploads', upload.single('user_file'), (req, res, next) => {
   res.redirect('/')
 });
 
-router.get('/download11/:test', (req, res, next) => {
+router.get('/download11/:id/:test', (req, res, next) => {
   try {
+    console.log(req.params.id);
     console.log(req.params.test);
     console.log('들어옴');
     const path = '/Users/boaz/Desktop/upload/uploads/'
-    const file = '1f0d9cac92ce8fb318b125b4c5e75280'
+    const file = 'test.js'
     const stream = fs.createReadStream(path + file);
     stream.pipe(res);
 
